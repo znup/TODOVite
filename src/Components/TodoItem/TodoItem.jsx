@@ -1,6 +1,14 @@
 import './TodoItem.css';
 
 const TodoItem = (props) => {
+  const onComplete = () => {
+    console.log('Tarea Completada' + props.text);
+  };
+
+  const onDelete = () => {
+    console.log('Borraste el Tudu' + props.text);
+  };
+
   return (
     <>
       <li className="TodoItem">
@@ -8,6 +16,7 @@ const TodoItem = (props) => {
           className={`Icon Icon-check ${
             props.isCompleted && 'Icon-check--active'
           }`}
+          onClick={onComplete}
         >
           ✔
         </span>
@@ -19,7 +28,9 @@ const TodoItem = (props) => {
           {props.isCompleted}
           {props.text}
         </p>
-        <span className="Icon Icon-delete">✘</span>
+        <span className="Icon Icon-delete" onClick={onDelete}>
+          ✘
+        </span>
       </li>
     </>
   );

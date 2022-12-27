@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const TodoSearch = () => {
   const todoSearch = {
     height: '64px',
@@ -25,7 +27,23 @@ const TodoSearch = () => {
     },
   };
 
-  return <input style={todoSearch} placeholder="Agrega un TODO" />;
+  const [search, setSearch] = useState('');
+
+  const onValueChange = (_) => {
+    setSearch(_.target.value);
+  };
+
+  return (
+    <>
+      <p>{search}</p>
+      <input
+        style={todoSearch}
+        placeholder="Agrega un TODO"
+        onChange={onValueChange}
+        value={search}
+      />
+    </>
+  );
 };
 
 export default TodoSearch;
