@@ -1,4 +1,6 @@
-const TodoCounter = () => {
+const TodoCounter = (props) => {
+  const { total, isCompleted } = props;
+
   const todoCounter = {
     margin: 0,
     padding: '48px',
@@ -7,7 +9,9 @@ const TodoCounter = () => {
   };
   return (
     <div>
-      <h3 style={todoCounter}>Has completado 1 de 4 TO-Do's</h3>
+      <h3 style={todoCounter}>
+        `Has completado {isCompleted} de {total} TO-Do's`
+      </h3>
     </div>
   );
 };

@@ -1,32 +1,20 @@
 import './TodoItem.css';
 
 const TodoItem = (props) => {
-  const onComplete = () => {
-    console.log('Tarea Completada' + props.text);
-  };
-
-  const onDelete = () => {
-    console.log('Borraste el Tudu' + props.text);
-  };
+  const { onDelete, isCompleted, onComplete, text } = props;
 
   return (
     <>
       <li className="TodoItem">
         <span
-          className={`Icon Icon-check ${
-            props.isCompleted && 'Icon-check--active'
-          }`}
+          className={`Icon Icon-check ${isCompleted && 'Icon-check--active'}`}
           onClick={onComplete}
         >
           ✔
         </span>
-        <p
-          className={`TodoItem-p ${
-            props.isCompleted && 'TodoItem-p--complete'
-          }`}
-        >
-          {props.isCompleted}
-          {props.text}
+        <p className={`TodoItem-p ${isCompleted && 'TodoItem-p--complete'}`}>
+          {isCompleted}
+          {text}
         </p>
         <span className="Icon Icon-delete" onClick={onDelete}>
           ✘
